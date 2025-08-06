@@ -14,3 +14,22 @@ class Solution:
 
 sol = Solution()
 val = sol.majorityElement([2, 2, 1, 1, 1, 2, 2, 3, 3])
+
+
+## Optimized 
+from collections import List
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        m = 0
+        r = 0
+
+        for num in nums:
+            if(m == 0):
+                r = num
+            
+            if(num == r):
+                m += 1
+            else:
+                m -= 1
+        
+        return r
